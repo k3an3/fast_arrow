@@ -10,7 +10,8 @@ class StockMarketdata(object):
         '''
         fetch and return results
         '''
-        return cls.quote_by_symbols(client, [symbol])[0]
+        url = "https://api.robinhood.com/quotes/{}/".format(symbol)
+        return client.get(url)
 
     @classmethod
     def quote_by_symbols(cls, client, symbols):

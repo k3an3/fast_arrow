@@ -1,4 +1,7 @@
 class Portfolio(object):
+    @classmethod
+    def fetch(cls, client, account):
+        return client.get("https://api.robinhood.com/portfolios/{}/".format(account))
 
     @classmethod
     def historical(cls, client, account="", span="year", bounds="regular"):
